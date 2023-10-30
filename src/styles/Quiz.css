@@ -1,0 +1,101 @@
+.question-box {
+    max-width: 600px;
+    background-color: white;
+    display: inline-block;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 25px;
+    border: solid 4px #54478c
+  }
+  
+  .question {
+    margin-bottom: 20px;
+    font-style: bold;
+  }
+  
+  .answers-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .answer-btn, .check-btn {
+    cursor: pointer;
+    width: 95%;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: solid thin #000000;
+  }
+  
+  .answer-btn {
+    background-color: #54478c;
+    color: white;
+  }
+  
+  .check-btn {
+    background-color: #161925;
+    color: white;
+  }
+  
+  .answer-btn:hover {
+    background-color: #6e5bc4;
+    color: white;
+  }
+  
+  .check-btn:hover {
+    background-color: #f29e4c;
+    color: #161925;
+  }
+  
+  .correct, .correct:hover, .incorrect, .incorrect:hover, .blocked, .blocked:hover, .selected, .selected:hover{
+    cursor: default;
+  }
+
+  .correct, .correct:hover {
+    background-color: #1A5D1A;
+  }
+  
+  .incorrect, .incorrect:hover{
+    background-color: #D80032;
+  }
+
+  .blocked, .blocked:hover {
+    background-color: #54478c;
+    color: white;
+  }
+
+  .selected, .selected:hover {
+    background-color: #f29e4c;
+  }
+  
+  .check-btn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .progress-bar {
+    position: relative;
+    width: 100%;
+    background-color: #f3f3f3;
+    border-radius: 13px;
+    margin-bottom: 20px;
+  }
+  
+  .progress {
+    height: 40px;
+    width: 10%;
+    background-color: #54478c;
+    border-radius: 13px;
+  }
+  
+  .progress-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    right: 0;
+    color: grey;
+  }

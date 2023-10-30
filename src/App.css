@@ -1,0 +1,15 @@
+body {
+  font-family: Georgia, serif;
+  background-color: #161925;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.App {
+  text-align: center;
+  font-size: 2rem;
+}
+
