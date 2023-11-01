@@ -1,0 +1,43 @@
+.setting-box {
+    max-width: 600px;
+    background-color: white;
+    display: inline-block;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 25px;
+    border: solid 4px #54478c
+}
+
+/*.setting-box input, .setting-box select {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+}*/
+
+#number-of-questions, .setting-box select {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #f2f2f2;
+}
+
+#number-of-questions {
+    accent-color: #54478c;
+}
+
+.submit-btn {
+    cursor: pointer;
+    width: 95%;
+    font-size: 1.5rem;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #54478c;
+    color: white;
+}

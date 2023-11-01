@@ -43,6 +43,7 @@ const shuffleAnswers = answers => {
 
 const getQuestions = async (apiURL) => {
     try{
+        console.log(apiURL)
         let questions = await fetchQuestions(apiURL)
         questions = questions.map((question, index) => changeQuestionFormat(question, index))
         questions.forEach(question => {

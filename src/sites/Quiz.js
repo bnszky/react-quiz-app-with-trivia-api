@@ -1,31 +1,23 @@
 import React, { Component } from 'react'
 import '../styles/Quiz.css'
-import {getQuestions} from '../api/getQuestions'
+import '../styles/Settings.css'
 import Question from './components/Question'
+import Settings from './components/Settings'
+import EndMessage from './components/EndMessage'
 
 export default class Quiz extends Component {
-
-    numberOfQuestions = 10
 
     constructor(){
         super()
 
         this.state = {
             questions: [],
-            loading: true,
+            questionListIsLoaded: false,
             index: 0,
             score: 0
         }
 
-        this.executeApiCommand()
         this.nextQuestion = this.nextQuestion.bind(this)
-    }
-
-    async executeApiCommand(){
-        this.setState({
-            questions: await getQuestions(`https://opentdb.com/api.php?amount=${this.numberOfQuestions}&type=multiple`),
-            loading: false
-        })
     }
 
     nextQuestion(isCorrect){
@@ -37,14 +29,22 @@ export default class Quiz extends Component {
         )
     }
 
+    getQuestionList(questions){
+        this.setState({
+            questions: questions,
+            questionListIsLoaded: true
+        }, () => {
+            console.log(this.state.questions)
+        })
+    }
+
     render() {
-        if(this.state.index >= this.numberOfQuestions) 
-        return <div className="question-box">
-            <h1>Your Score: {this.state.score}/{this.numberOfQuestions}</h1>
-            <button className='check-btn' onClick={() => window.location.reload()}>Restart</button>
-        </div>
-        else return (
-            (this.state.loading == false) && <Question question={this.state.questions[this.state.index]} index={this.state.index+1} amountOfQuestions={this.numberOfQuestions} nextQuestionCallback={this.nextQuestion}/>
-        )
+
+        return this.state.questionListIsLoaded ? (
+            (this.state.index < this.state.questions.length) ? (
+                <Question question={this.state.questions[this.state.index]} index={this.state.index+1} amountOfQuestions={this.state.questions.length} nextQuestionCallback={this.nextQuestion}/>
+            ) : <EndMessage score={this.state.score} numberOfQuestions={this.state.questions.length}/>       
+        ) : <Settings onLoad={questions => this.getQuestionList(questions)}/>
+
     }
 }
